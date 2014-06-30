@@ -5,19 +5,18 @@ var Controls = {
 	methods: {
 
 		calculatePath: function () {
-			var tilex = Map.vars.layers.ground1.getTileX(Map.vars.cellMarker.x),
-				tiley = Map.vars.layers.ground1.getTileY(Map.vars.cellMarker.y);
+			var tileX = Map.vars.layers.ground.getTileX(Map.vars.cellMarker.x),
+				tileY = Map.vars.layers.ground.getTileY(Map.vars.cellMarker.y),
+				playerX = Math.round(Player.vars.player.x / 32),
+				playerY = Math.round(Player.vars.player.y / 32);
+
+			if (tileX == playerX && tileY == playerY) return;
 
 			Map.vars.pathfinder.setCallbackFunction(function(path) {
-				Player.vars.currPathStep = 0;
-				Player.vars.path = path || [];
-
-				Player.methods.moveTo();
+				if (path) Player.methods.moveTo(path);
 			});
 
-			console.log([Player.vars.player.x / 32, Player.vars.player.y / 32]);
-
-			Map.vars.pathfinder.preparePathCalculation([Player.vars.player.x / 32, Player.vars.player.y / 32], [tilex, tiley]);
+			Map.vars.pathfinder.preparePathCalculation([playerX, playerY], [tileX, tileY]);
 			Map.vars.pathfinder.calculatePath();
 		}
 
