@@ -8,8 +8,9 @@ var Game = {
 	methods: {
 
 		preload: function () {
-			Game.vars.game.load.tilemap('map', 'data/js/tiles.json', null, Phaser.Tilemap.TILED_JSON);
-			Game.vars.game.load.image('tiles', 'data/img/sprite2.png?4');
+			Game.vars.game.load.tilemap('tilemap', 'data/js/map.json', null, Phaser.Tilemap.TILED_JSON);
+			Game.vars.game.load.image('sprite-ground', 'data/img/sprite-ground.png');
+			Game.vars.game.load.image('sprite-trees', 'data/img/sprite-trees.png');
 			Game.vars.game.load.spritesheet('hero', 'data/img/mummy.png?4', 64, 96);
 			Game.vars.game.load.spritesheet('poring', 'data/img/poring.png', 64, 64);
 

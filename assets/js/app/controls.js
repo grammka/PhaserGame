@@ -5,8 +5,8 @@ var Controls = {
 	methods: {
 
 		calculatePath: function () {
-			var tileX = Map.vars.layers.ground.getTileX(Map.vars.cellMarker.x),
-				tileY = Map.vars.layers.ground.getTileY(Map.vars.cellMarker.y),
+			var tileX = Map.vars.layers.collisions.getTileX(Map.vars.cellMarker.x),
+				tileY = Map.vars.layers.collisions.getTileY(Map.vars.cellMarker.y),
 				playerX = Math.round(Player.vars.body.x / 32),
 				playerY = Math.round(Player.vars.body.y / 32);
 

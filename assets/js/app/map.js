@@ -10,11 +10,11 @@ var Map = {
 	methods: {
 
 		create: function () {
-			Map.vars.map = Game.vars.game.add.tilemap('map');
-			Map.vars.map.addTilesetImage('sprite', 'tiles');
+			Map.vars.map = Game.vars.game.add.tilemap('tilemap');
+			Map.vars.map.addTilesetImage('sprite-ground', 'sprite-ground');
+			Map.vars.map.addTilesetImage('sprite-trees', 'sprite-trees');
 
-			// Layers
-			Map.vars.layers.collisions = Map.vars.map.createLayer('collisions');
+			// Ground Layer
 			Map.vars.layers.ground = Map.vars.map.createLayer('ground');
 
 			// Cell Marker
@@ -24,6 +24,7 @@ var Map = {
 
 			// Layers
 			Map.vars.layers.trees = Map.vars.map.createLayer('trees');
+			Map.vars.layers.collisions = Map.vars.map.createLayer('collisions');
 
 			// Player
 			Player.init();

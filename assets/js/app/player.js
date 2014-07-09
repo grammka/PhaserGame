@@ -3,6 +3,7 @@ var Player = {
 	vars: {
 		body: null,
 		sprite: null,
+		startPosition: [4, 4],
 
 		path: null,
 		currPathStep: null,
@@ -26,7 +27,7 @@ var Player = {
 	methods: {
 
 		create: function () {
-			Player.vars.body = Game.vars.game.add.sprite(2 * 32, 2 * 32, '');
+			Player.vars.body = Game.vars.game.add.sprite(Player.vars.startPosition[0] * 32, Player.vars.startPosition[1] * 32, '');
 			Player.vars.sprite = Game.vars.game.add.sprite(16, -64, 'hero');
 			Player.vars.body.addChild(Player.vars.sprite);
 
