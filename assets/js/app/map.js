@@ -16,18 +16,20 @@ var Map = {
 			// Layers
 			Map.vars.layers.collisions = Map.vars.map.createLayer('collisions');
 			Map.vars.layers.ground = Map.vars.map.createLayer('ground');
-			Map.vars.layers.trees = Map.vars.map.createLayer('trees');
-			//Map.vars.layers.objects.resizeWorld();
-
-			// Hero
-			Player.vars.player = Game.vars.game.add.sprite(6 * 32, 6 * 32, 'hero');
-
-
 
 			// Cell Marker
 			Map.vars.cellMarker = Game.vars.game.add.graphics();
 			Map.vars.cellMarker.lineStyle(1, 0x00FF00, 1);
 			Map.vars.cellMarker.drawRect(0, 0, 30, 30);
+
+			// Layers
+			Map.vars.layers.trees = Map.vars.map.createLayer('trees');
+
+			// Player
+			Player.init();
+
+			// Poring
+			Poring.init();
 
 			// Path Finder
 			Map.vars.pathfinder = Game.vars.game.plugins.add(Phaser.Plugin.PathFinderPlugin);

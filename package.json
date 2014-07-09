@@ -1,0 +1,32 @@
+{
+	"name": "bincsearch",
+	"version": "0.0.1",
+	"homepage": "http://bincsearch.com",
+	"author": {
+		"name": "Pavel",
+		"email": "grammka@gmail.com",
+		"url": "http://facebook.com/grammka"
+	},
+	"private": true,
+	"scripts": {
+		"start": "node app"
+	},
+	"dependencies": {
+
+	},
+	"devDependencies": {
+		"gulp": "*",
+		"gulp-util": "*",
+		"gulp-clean": "*",
+		"gulp-jade": "*",
+		"gulp-minify-css": "*",
+		"gulp-ruby-sass": "*",
+		"gulp-coffee": "*",
+		"gulp-uglify": "*",
+		"gulp-imagemin": "*",
+		"gulp-rename": "*",
+		"gulp-concat": "*",
+		"gulp-notify": "*",
+		"gulp-cache": "*"
+	}
+}

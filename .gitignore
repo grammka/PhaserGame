@@ -1,1 +1,6 @@
 .idea
+assets/js/components
+assets/img/social-icons-*.png
+public
+node_modules
+apiary.apib

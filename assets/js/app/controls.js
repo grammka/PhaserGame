@@ -7,8 +7,8 @@ var Controls = {
 		calculatePath: function () {
 			var tileX = Map.vars.layers.ground.getTileX(Map.vars.cellMarker.x),
 				tileY = Map.vars.layers.ground.getTileY(Map.vars.cellMarker.y),
-				playerX = Math.round(Player.vars.player.x / 32),
-				playerY = Math.round(Player.vars.player.y / 32);
+				playerX = Math.round(Player.vars.body.x / 32),
+				playerY = Math.round(Player.vars.body.y / 32);
 
 			if (tileX == playerX && tileY == playerY) return;
 

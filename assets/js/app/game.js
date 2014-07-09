@@ -8,34 +8,54 @@ var Game = {
 	methods: {
 
 		preload: function () {
-			Game.vars.game.load.tilemap('map', 'assets/js/json/tiles.json?2', null, Phaser.Tilemap.TILED_JSON);
-			Game.vars.game.load.image('tiles', 'assets/img/sprite.png?2');
-			Game.vars.game.load.spritesheet('hero', 'assets/img/mummy.png', 64, 96);
+			Game.vars.game.load.tilemap('map', 'data/js/tiles.json', null, Phaser.Tilemap.TILED_JSON);
+			Game.vars.game.load.image('tiles', 'data/img/sprite2.png?4');
+			Game.vars.game.load.spritesheet('hero', 'data/img/mummy.png?4', 64, 96);
+			Game.vars.game.load.spritesheet('poring', 'data/img/poring.png', 64, 64);
+
+			//Game.methods.pixelPerfect();
 		},
 
 		create: function () {
 			Game.vars.game.stage.backgroundColor = '#787878';
 
 			Map.init();
-			Player.init();
 			Controls.init();
 
 			Game.vars.game.physics.startSystem(Phaser.Physics.ARCADE);
-			Game.vars.game.physics.enable(Player.vars.player);
 
 			Game.methods.createGroup();
-		},
-
-		createGroup: function () {
-			Game.vars.group = Game.vars.game.add.group();
-
-			//Player.vars.player = Game.vars.group.create(6 * 32, 6 * 32, 'hero');
-			//Map.vars.layers.trees = Game.vars.group.create(6 * 32, 6 * 32, Map.vars.layers.trees);
 		},
 
 		update: function () {
 			Map.methods.update();
 			Player.methods.update();
+			Poring.methods.update();
+
+			Game.vars.group.sort('y', Phaser.Group.SORT_ASCENDING);
+		},
+
+		render: function () {
+			Game.vars.game.debug.text('Player z-depth: ' + Player.vars.body.z, 10, 20);
+		},
+		
+		
+		
+		createGroup: function () {
+			Game.vars.group = Game.vars.game.add.group();
+			Game.vars.group.add(Player.vars.body);
+			Game.vars.group.add(Poring.vars.body);
+
+			//Player.vars.player = Game.vars.group.create(6 * 32, 6 * 32, 'hero');
+			//Map.vars.layers.trees = Game.vars.group.create(6 * 32, 6 * 32, Map.vars.layers.trees);
+		},
+		
+		pixelPerfect: function () {
+			Game.vars.game.scale.maxWidth = Math.round(Game.vars.game.canvas.width / Game.vars.game.device.pixelRatio);
+			Game.vars.game.scale.maxHeight = Math.round(Game.vars.game.canvas.height / Game.vars.game.device.pixelRatio);
+			Game.vars.game.scale.minWidth = Math.round(Game.vars.game.canvas.width / Game.vars.game.device.pixelRatio);
+			Game.vars.game.scale.minHeight = Math.round(Game.vars.game.canvas.height / Game.vars.game.device.pixelRatio);
+			Game.vars.game.scale.refresh();
 		}
 
 	},
@@ -45,7 +65,8 @@ var Game = {
 		Game.vars.game = new Phaser.Game(640, 640, Phaser.AUTO, '', {
 			preload: Game.methods.preload,
 			create: Game.methods.create,
-			update: Game.methods.update
+			update: Game.methods.update,
+			render: Game.methods.render
 		});
 
 	}
