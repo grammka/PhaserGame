@@ -27,8 +27,8 @@ var Player = {
 	methods: {
 
 		create: function () {
-			Player.vars.body = Game.vars.game.add.sprite(Player.vars.startPosition[0] * 32, Player.vars.startPosition[1] * 32, '');
-			Player.vars.sprite = Game.vars.game.add.sprite(16, -64, 'hero');
+			Player.vars.body = Game.vars.group.create(Player.vars.startPosition[0] * 32, Player.vars.startPosition[1] * 32, '');
+			Player.vars.sprite = Game.vars.group.create(16, -64, 'hero');
 			Player.vars.body.addChild(Player.vars.sprite);
 
 			Game.vars.game.physics.enable(Player.vars.body);

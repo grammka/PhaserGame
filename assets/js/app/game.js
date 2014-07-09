@@ -10,7 +10,7 @@ var Game = {
 		preload: function () {
 			Game.vars.game.load.tilemap('tilemap', 'data/js/map.json', null, Phaser.Tilemap.TILED_JSON);
 			Game.vars.game.load.image('sprite-ground', 'data/img/sprite-ground.png');
-			Game.vars.game.load.image('sprite-trees', 'data/img/sprite-trees.png');
+			Game.vars.game.load.spritesheet('sprite-trees', 'data/img/sprite-trees.png', 32, 64);
 			Game.vars.game.load.spritesheet('hero', 'data/img/mummy.png?4', 64, 96);
 			Game.vars.game.load.spritesheet('poring', 'data/img/poring.png', 64, 64);
 
@@ -24,8 +24,6 @@ var Game = {
 			Controls.init();
 
 			Game.vars.game.physics.startSystem(Phaser.Physics.ARCADE);
-
-			Game.methods.createGroup();
 		},
 
 		update: function () {
@@ -38,17 +36,6 @@ var Game = {
 
 		render: function () {
 			Game.vars.game.debug.text('Player z-depth: ' + Player.vars.body.z, 10, 20);
-		},
-		
-		
-		
-		createGroup: function () {
-			Game.vars.group = Game.vars.game.add.group();
-			Game.vars.group.add(Player.vars.body);
-			Game.vars.group.add(Poring.vars.body);
-
-			//Player.vars.player = Game.vars.group.create(6 * 32, 6 * 32, 'hero');
-			//Map.vars.layers.trees = Game.vars.group.create(6 * 32, 6 * 32, Map.vars.layers.trees);
 		},
 		
 		pixelPerfect: function () {

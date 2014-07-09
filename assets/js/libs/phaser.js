@@ -50932,8 +50932,6 @@ Phaser.Physics.Arcade.Body.prototype = {
 
         this.phase = 2;
 
-	    console.log(this.deltaX());
-
         if (this.deltaX() < 0)
         {
             this.facing = Phaser.LEFT;

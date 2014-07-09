@@ -25,8 +25,8 @@ var Poring = {
 	methods: {
 
 		create: function () {
-			Poring.vars.body = Game.vars.game.add.sprite(9 * 32, 6 * 32);
-			Poring.vars.sprite = Game.vars.game.add.sprite(16, -32, 'poring');
+			Poring.vars.body = Game.vars.group.create(9 * 32, 6 * 32);
+			Poring.vars.sprite = Game.vars.group.create(16, -32, 'poring');
 			Poring.vars.body.addChild(Poring.vars.sprite);
 
 			Poring.vars.sprite.anchor.setTo(.5,0);
